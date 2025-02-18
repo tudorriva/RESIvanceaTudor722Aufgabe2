@@ -14,6 +14,15 @@ public class Produkten {
     public Produkten() {
     }
 
+    @Override
+    public String toString() {
+        return "Produkten{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", herkunftregion='" + herkunftregion + '\'' +
+                '}';
+    }
+
     public String getName() {
         return name;
     }

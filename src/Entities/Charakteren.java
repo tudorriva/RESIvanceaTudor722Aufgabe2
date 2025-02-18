@@ -9,6 +9,16 @@ public class Charakteren {
     private String herkunftdorf;
     private List<Produkten> gekaufterProdukten;
 
+    @Override
+    public String toString() {
+        return "Charakteren{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", herkunftdorf='" + herkunftdorf + '\'' +
+                ", gekaufterProdukten=" + gekaufterProdukten +
+                '}';
+    }
+
     public Charakteren(int id, String name, String herkunftdorf) {
         this.id = id;
         this.name = name;
@@ -21,6 +31,12 @@ public class Charakteren {
         this.name = name;
         this.herkunftdorf = herkunftdorf;
         this.gekaufterProdukten = gekaufterProdukten;
+    }
+
+    public Charakteren(String name, String herkunftdorf) {
+        this.name = name;
+        this.herkunftdorf = herkunftdorf;
+        this.gekaufterProdukten = new ArrayList<>();
     }
 
     public Charakteren() {

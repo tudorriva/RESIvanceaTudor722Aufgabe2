@@ -27,6 +27,28 @@ public class Repo<T> implements IRepository<T> {
     }
 
     @Override
+    public void updateByName(String name, T newObj) {
+        for (T obj : map.values()) {
+            if (obj instanceof Produkten) {
+                if (((Produkten) obj).getName().equals(name)) {
+                    obj = newObj;
+                }
+            }
+        }
+    }
+
+    @Override
+    public void deleteByName(String name) {
+        for (T obj : map.values()) {
+            if (obj instanceof Produkten) {
+                if (((Produkten) obj).getName().equals(name)) {
+                    obj = null;
+                }
+            }
+        }
+    }
+
+    @Override
     public void delete(int id) {
         map.remove(id);
     }
@@ -34,6 +56,18 @@ public class Repo<T> implements IRepository<T> {
     @Override
     public T get(int id) {
         return map.get(id);
+    }
+
+    @Override
+    public T getByName(String name) {
+        for (T obj : map.values()) {
+            if (obj instanceof Produkten) {
+                if (((Produkten) obj).getName().equals(name)) {
+                    return obj;
+                }
+            }
+        }
+        return null;
     }
 
     @Override
