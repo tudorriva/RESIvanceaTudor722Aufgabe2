@@ -26,7 +26,8 @@ public class ConsoleView {
             System.out.println("6. Update Patient");
             System.out.println("7. Delete Patient");
             System.out.println("8. List All Patienten");
-            System.out.println("9. Exit");
+            System.out.println("9. FilterByVillage");
+            System.out.println("10. Exit");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); // consume newline
@@ -57,6 +58,12 @@ public class ConsoleView {
                     listAllPatienten();
                     break;
                 case 9:
+                    System.out.print("Enter herkunftsdorf to filter by: ");
+                    String herkunftsdorf = scanner.nextLine();
+                    List<Charakteren> patienten = controller.filterByVillage(herkunftsdorf);
+                    patienten.forEach(System.out::println);
+                    break;
+                case 10:
                     return;
                 default:
                     System.out.println("Invalid choice. Please try again.");
